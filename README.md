@@ -77,11 +77,11 @@ Guide: https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide
 📦 FOLDER STRUCTURE
 ------------------------------------------------------------
 /src
-  ├── components/     # UI Components
-  ├── pages/          # Pages
-  ├── styles/         # Styling files
-  ├── utils/          # Helper functions
-  └── main.tsx        # Entry point
+  ├── components/     
+  ├── pages/          
+  ├── styles/         
+  ├── utils/          
+  └── main.tsx        
 
 ------------------------------------------------------------
 ✅ IMPORTANT LINKS
