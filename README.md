@@ -1,73 +1,100 @@
-# Welcome to your Lovable project
+🔍 ALGORITHM VISUALIZER (React + TypeScript)
+==========
+🧠 PROJECT OVERVIEW
+------------------------------------------------------------
+Algorithm Visualizer is an interactive web application that
+allows you to visualize algorithms like sorting, searching,
+and graph traversal in real time.
 
-## Project info
-
-**URL**: https://lovable.dev/projects/fe9c0556-9e42-4cf0-ad97-ce302e516b25
-
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/fe9c0556-9e42-4cf0-ad97-ce302e516b25) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
+Built with:
 - React
-- shadcn-ui
+- TypeScript
+- Vite
 - Tailwind CSS
+- shadcn-ui
 
-## How can I deploy this project?
+LIVE DEMO:
+https://viz-algo-play.lovable.app/
 
-Simply open [Lovable](https://lovable.dev/projects/fe9c0556-9e42-4cf0-ad97-ce302e516b25) and click on Share -> Publish.
+------------------------------------------------------------
+🚀 FEATURES
+------------------------------------------------------------
+- Modern UI using Tailwind CSS and shadcn-ui
+- Real-time Algorithm Visualization
+- Responsive Design for all devices
+- Fast development with Vite
+- Hosted and deployed via Lovable
+- Custom domain support
 
-## Can I connect a custom domain to my Lovable project?
+------------------------------------------------------------
+🛠 TECH STACK
+------------------------------------------------------------
+- Frontend: React.js + TypeScript + Vite
+- Styling: Tailwind CSS + shadcn-ui
+- Deployment: Lovable
 
-Yes, you can!
+------------------------------------------------------------
+🔧 SETUP INSTRUCTIONS
+------------------------------------------------------------
+1. Clone the repository:
+   git clone <YOUR_GIT_URL>
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+2. Navigate to the project directory:
+   cd <YOUR_PROJECT_NAME>
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+3. Install dependencies:
+   npm install
+
+4. Start the development server:
+   npm run dev
+
+The app will run on http://localhost:5173/ by default.
+
+------------------------------------------------------------
+🧪 HOW TO EDIT THE CODE?
+------------------------------------------------------------
+1) Using Lovable:
+   - Open your project:
+     https://lovable.dev/projects/fe9c0556-9e42-4cf0-ad97-ce302e516b25
+   - Start prompting. All changes auto-commit.
+
+2) Using your IDE:
+   - Follow the setup steps above.
+
+3) Using GitHub:
+   - Edit files directly or use GitHub Codespaces.
+
+------------------------------------------------------------
+🌍 DEPLOYMENT
+------------------------------------------------------------
+- Deploy instantly via Lovable:
+  Share -> Publish
+- Add a custom domain:
+  Project -> Settings -> Domains
+Guide: https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide
+
+------------------------------------------------------------
+📦 FOLDER STRUCTURE
+------------------------------------------------------------
+/src
+  ├── components/     # UI Components
+  ├── pages/          # Pages
+  ├── styles/         # Styling files
+  ├── utils/          # Helper functions
+  └── main.tsx        # Entry point
+
+------------------------------------------------------------
+✅ IMPORTANT LINKS
+------------------------------------------------------------
+Live App:
+https://viz-algo-play.lovable.app/
+
+Lovable Project:
+https://lovable.dev/projects/fe9c0556-9e42-4cf0-ad97-ce302e516b25
+
+------------------------------------------------------------
+📄 LICENSE
+------------------------------------------------------------
+This project is for educational and visualization purposes.
+Enjoy exploring algorithms! 🚀
+============================================================
