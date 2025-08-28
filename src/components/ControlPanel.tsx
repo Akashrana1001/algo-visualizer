@@ -27,10 +27,15 @@ const algorithmOptions = {
     { value: 'bubble' as const, label: 'Bubble Sort' },
     { value: 'selection' as const, label: 'Selection Sort' },
     { value: 'insertion' as const, label: 'Insertion Sort' },
+    { value: 'merge' as const, label: 'Merge Sort' },
+    { value: 'quick' as const, label: 'Quick Sort' },
   ],
   searching: [
     { value: 'linear' as const, label: 'Linear Search' },
     { value: 'binary' as const, label: 'Binary Search' },
+    { value: 'jump' as const, label: 'Jump Search' },
+    { value: 'interpolation' as const, label: 'Interpolation Search' },
+    { value: 'exponential' as const, label: 'Exponential Search' },
   ],
   graph: [
     { value: 'dfs' as const, label: 'Depth-First Search (DFS)' },
@@ -52,7 +57,7 @@ export const ControlPanel: React.FC<ControlPanelProps> = ({
   onSpeedChange,
   onGenerateNew,
 }) => {
-  const isSearchAlgorithm = ['linear', 'binary'].includes(selectedAlgorithm);
+  const isSearchAlgorithm = ['linear', 'binary', 'jump', 'interpolation', 'exponential'].includes(selectedAlgorithm);
 
   return (
     <div className="space-y-6">

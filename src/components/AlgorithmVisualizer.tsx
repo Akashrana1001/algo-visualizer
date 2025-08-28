@@ -4,7 +4,7 @@ import { ControlPanel } from './ControlPanel';
 import { ArrayVisualizer } from './ArrayVisualizer';
 import { GraphVisualizer } from './GraphVisualizer';
 
-export type AlgorithmType = 'bubble' | 'selection' | 'insertion' | 'linear' | 'binary' | 'dfs' | 'bfs' | 'astar';
+export type AlgorithmType = 'bubble' | 'selection' | 'insertion' | 'merge' | 'quick' | 'linear' | 'binary' | 'jump' | 'interpolation' | 'exponential' | 'dfs' | 'bfs' | 'astar';
 export type VisualizationType = 'array' | 'graph';
 
 export interface VisualizerState {

@@ -1,6 +1,6 @@
 import React, { useState, useImperativeHandle, forwardRef, useCallback } from 'react';
 import { AlgorithmType, VisualizerState } from './AlgorithmVisualizer';
-import { bubbleSort, selectionSort, insertionSort, linearSearch, binarySearch } from '../utils/algorithms';
+import { bubbleSort, selectionSort, insertionSort, mergeSort, quickSort, linearSearch, binarySearch, jumpSearch, interpolationSearch, exponentialSearch } from '../utils/algorithms';
 
 interface ArrayVisualizerProps {
   speed: number;
@@ -83,18 +83,36 @@ const ArrayVisualizer = forwardRef<any, ArrayVisualizerProps>(({ speed, onStateC
         case 'insertion':
           steps = insertionSort([...arrayValues]);
           break;
+        case 'merge':
+          steps = mergeSort([...arrayValues]);
+          break;
+        case 'quick':
+          steps = quickSort([...arrayValues]);
+          break;
         case 'linear':
           if (searchTarget !== undefined) {
             steps = linearSearch([...arrayValues], searchTarget);
           }
           break;
         case 'binary':
+        case 'jump':
+        case 'interpolation':
+        case 'exponential':
           if (searchTarget !== undefined) {
-            // Sort array first for binary search
+            // Sort array first for these search algorithms
             const sortedArray = [...arrayValues].sort((a, b) => a - b);
             setArray(prev => prev.map((el, idx) => ({ ...el, value: sortedArray[idx] })));
             await new Promise(resolve => setTimeout(resolve, speed));
-            steps = binarySearch(sortedArray, searchTarget);
+            
+            if (algorithm === 'binary') {
+              steps = binarySearch(sortedArray, searchTarget);
+            } else if (algorithm === 'jump') {
+              steps = jumpSearch(sortedArray, searchTarget);
+            } else if (algorithm === 'interpolation') {
+              steps = interpolationSearch(sortedArray, searchTarget);
+            } else if (algorithm === 'exponential') {
+              steps = exponentialSearch(sortedArray, searchTarget);
+            }
           }
           break;
         default:
