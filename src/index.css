@@ -2,41 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Algorithm Visualizer Design System - Modern tech-focused palette */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 220 25% 6%;
+    --foreground: 220 15% 92%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 20% 8%;
+    --card-foreground: 220 15% 92%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 20% 8%;
+    --popover-foreground: 220 15% 92%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 263 85% 65%;
+    --primary-foreground: 220 15% 95%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 220 15% 85%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 15% 12%;
+    --muted-foreground: 220 10% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 195 100% 50%;
+    --accent-foreground: 220 20% 8%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 220 15% 95%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --success: 142 76% 36%;
+    --success-foreground: 220 15% 95%;
 
-    --radius: 0.5rem;
+    --warning: 45 93% 58%;
+    --warning-foreground: 220 20% 8%;
+
+    --border: 220 15% 18%;
+    --input: 220 15% 15%;
+    --ring: 263 85% 65%;
+
+    --radius: 0.75rem;
+
+    /* Algorithm visualization colors */
+    --algo-default: 220 15% 25%;
+    --algo-comparing: 45 93% 58%;
+    --algo-visited: 263 85% 65%;
+    --algo-current: 0 85% 60%;
+    --algo-path: 142 76% 36%;
+    --algo-start: 195 100% 50%;
+    --algo-end: 320 85% 65%;
+    --algo-wall: 220 15% 12%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(263 85% 65%), hsl(195 100% 50%));
+    --gradient-surface: linear-gradient(135deg, hsl(220 20% 8%), hsl(220 15% 12%));
+    --gradient-accent: linear-gradient(135deg, hsl(195 100% 50%), hsl(263 85% 65%));
+
+    /* Animation timing */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +123,157 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .algo-bar {
+    @apply transition-all duration-300 ease-in-out;
+    background: hsl(var(--algo-default));
+    border-radius: 4px 4px 0 0;
+  }
+
+  .algo-bar.comparing {
+    background: hsl(var(--algo-comparing));
+    transform: scale(1.05);
+  }
+
+  .algo-bar.visited {
+    background: hsl(var(--algo-visited));
+  }
+
+  .algo-bar.current {
+    background: hsl(var(--algo-current));
+    transform: scale(1.1);
+    box-shadow: 0 0 20px hsl(var(--algo-current) / 0.5);
+  }
+
+  .algo-bar.path {
+    background: hsl(var(--algo-path));
+  }
+
+  .graph-cell {
+    @apply transition-all duration-200 ease-in-out border border-border;
+    background: hsl(var(--card));
+  }
+
+  .graph-cell.wall {
+    background: hsl(var(--algo-wall));
+  }
+
+  .graph-cell.start {
+    background: hsl(var(--algo-start));
+  }
+
+  .graph-cell.end {
+    background: hsl(var(--algo-end));
+  }
+
+  .graph-cell.visited {
+    background: hsl(var(--algo-visited));
+    animation: pulse-visited 0.6s ease-in-out;
+  }
+
+  .graph-cell.path {
+    background: hsl(var(--algo-path));
+    animation: pulse-path 0.4s ease-in-out;
+  }
+
+  .graph-cell.current {
+    background: hsl(var(--algo-current));
+    transform: scale(0.9);
+  }
+
+  .control-panel {
+    background: var(--gradient-surface);
+    backdrop-filter: blur(10px);
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+}
+
+@layer utilities {
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out;
+  }
+
+  .animate-bounce-in {
+    animation: bounceIn 0.6s ease-out;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-visited {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-path {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 hsl(var(--algo-path) / 0.7);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 8px hsl(var(--algo-path) / 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 hsl(var(--algo-path) / 0);
   }
 }
